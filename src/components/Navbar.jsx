@@ -9,7 +9,7 @@ const Menu = [
   {
     id: 1,
     name: "Inicio",
-    link: "#",
+    link: "/",
   },
   {
     id: 2,

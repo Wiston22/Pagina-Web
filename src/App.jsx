@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'; // Importa Link desde react-router-dom
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Banner from './components/contenidos/banner';
 import CardWidget from './components/CardWidget';
@@ -26,18 +26,19 @@ const App = () => {
     <Router>
       <div>
         <Navbar />
-        <Banner />
-        <CardWidget cartItems={cartItems} />
-        <TopProductos addToCart={addToCart} />
-        <Banner2 />
-        <Registro />
-        <Comentarios />
-        <Footer />
-        {/* Enlace al carrito */}
-        <Link to="/carrito">Carrito</Link>
-        {/* Definición de rutas */}
         <Routes>
-          <Route path="/carrito" element={<Carrito />} />
+          <Route path="/" element={
+            <>
+              <Banner />
+              <CardWidget cartItems={cartItems} />
+              <TopProductos addToCart={addToCart} />
+              <Banner2 />
+              <Registro />
+              <Comentarios />
+              <Footer />
+            </>
+          } />
+          <Route path="/carrito" element={<Carrito cartItems={cartItems} removeFromCart={removeFromCart} />} />
         </Routes>
       </div>
     </Router>
